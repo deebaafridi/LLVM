@@ -1,0 +1,39 @@
+Function: test1
+p -> {}
+y -> {}
+
+Function: test2
+p -> {y}
+y -> {p}
+
+Function: test3
+p -> {p1, y}
+y -> {p, p1}
+p1 -> {p, y}
+
+Function: test4
+p -> {q}
+q -> {p}
+
+Function: test5
+x -> {c}
+y -> {d}
+c -> {x}
+d -> {y}
+
+Function: test6
+p -> {q}
+q -> {p}
+
+Function: test7
+p -> {q}
+q -> {p}
+
+Function: test8
+r -> {p1, p2}
+p1 -> {r}
+p2 -> {r}
+
+Function: main
+r -> {}
+
