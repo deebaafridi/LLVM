@@ -33,20 +33,7 @@ This is an out-of-tree LLVM pass using the legacy pass manager, meant to be buil
 
 1. Drop this directory into your LLVM checkout (e.g. under `llvm/lib/Transforms/`) so it builds alongside LLVM's own passes.
 2. Build LLVM/`opt` as usual (CMake + ninja/make). This produces a shared library, e.g. `libaliasCustom.so`, in your build tree's `lib/` directory.
-3. Compile the test source to LLVM IR and run the pass on it:
-
-```bash
-clang -S -emit-llvm input.c -o input.ll
-opt -load /path/to/build/lib/libaliasCustom.so -alias_lib_given -disable-output input.ll
-```
-
-On LLVM 14+, the new pass manager is the default, so the legacy one may need to be forced explicitly:
-
-```bash
-opt -enable-new-pm=0 -load /path/to/build/lib/libaliasCustom.so -alias_lib_given -disable-output input.ll
-```
-
-The pass is analysis-only and doesn't modify the IR, it just writes its findings to `output.txt` next to the source file.
+3. Compile the test source to LLVM IR and run the pass on it.
 
 ## Output
 For every function, the pass appends a block to `output.txt` listing each pointer variable and everything it may alias with at the function's last program point:
