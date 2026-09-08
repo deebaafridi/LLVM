@@ -31,7 +31,7 @@ It operates directly on LLVM IR, so it works on whatever the input C was compile
 ## Build & Run
 This is an out-of-tree LLVM pass using the legacy pass manager, meant to be built inside an LLVM source/build tree — the `BUILDTREE_ONLY` / `PLUGIN_TOOL opt` options in `CMakeLists.txt` are LLVM's own macros for exactly that setup.
 
-1. Drop this directory into your LLVM checkout (e.g. under `llvm/lib/Transforms/`) so it builds alongside LLVM's own passes.
+1. Pass if kept in the same directory structure which is required to put in llvm `llvm/lib/Transforms/`.
 2. Build LLVM/`opt` as usual (CMake + ninja/make). This produces a shared library, e.g. `libaliasCustom.so`, in your build tree's `lib/` directory.
 3. Compile the test source to LLVM IR and run the pass on it.
 
